@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="questionOne" class="tsi.ensg.jee.tp2.QuestionsJavaAvance" />
+
+    <bean id="genQuestion" class="tsi.ensg.jee.tp2.QuestionsService">
+        <property name="questions" ref="questionOne"/>
+    </bean>
+
+
+
+</beans>

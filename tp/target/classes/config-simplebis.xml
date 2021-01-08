@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="questionsJava" class="tsi.ensg.jee.tp2.simplebis.QuestionsJava">
+        <property name="questions">
+            <list>
+                <value>"What's the first name of professor Dumbledore ?"</value>
+                <value>"What's the first name of professor Snape ?"</value>
+                <value>"What's the first name of professor McGonagal ?"</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="questionsJavaAvance" class="tsi.ensg.jee.tp2.simplebis.QuestionsJavaAvance">
+        <property name="questions">
+            <list>
+                <value>"What's the house of Ronald Weasley ?"</value>
+                <value>"What's the house of Draco Malfoy ?"</value>
+                <value>"What's the house of Cedric Digory ?"</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="questionsService" class="tsi.ensg.jee.tp2.simplebis.QuestionsService">
+        <property name="questions" ref="questionsJavaAvance"/>
+    </bean>
+
+
+
+
+</beans>

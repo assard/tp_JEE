@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="tsi.ensg.jee.onlineshop.Delivery">
+        <constructor-arg value="Delivery by drone" />
+    </bean>
+    <bean class="java.sql.Time">
+        <constructor-arg value="1"/>
+        <constructor-arg value="30"/>
+        <constructor-arg value="0"/>
+    </bean>
+    <bean class="tsi.ensg.jee.onlineshop.DeliveryClassic" autowire="constructor">
+        <constructor-arg value="Standard Delivery" />
+    </bean>
+    <bean class="tsi.ensg.jee.onlineshop.Insurance">
+        <constructor-arg value="Return insurance only for members" />
+    </bean>
+    <bean class="tsi.ensg.jee.onlineshop.Insurance">
+        <constructor-arg value="Theft insurance" />
+    </bean>
+
+    <bean id="onlineShop" class="tsi.ensg.jee.onlineshop.OnlineShop" autowire="constructor">
+        <constructor-arg value="Amazon" />
+    </bean>
+
+</beans>
