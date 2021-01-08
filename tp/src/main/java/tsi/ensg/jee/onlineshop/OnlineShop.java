@@ -1,12 +1,22 @@
 package tsi.ensg.jee.onlineshop;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Set;
 
 public class OnlineShop {
 
     private String name;
+
+    @Autowired
     private Set<Delivery> deliveryOptions;
+
+    @Autowired
     private Set<Insurance> insurances;
+
+    public OnlineShop(String name){
+        this.name = name;
+    }
 
     public OnlineShop(String name,Set<Delivery> deliveryOptions,Set<Insurance> insurances){
         this.name = name;
