@@ -18,7 +18,7 @@ public class EmployeeDAO {
     public void create(String firstName, String lastName, int salary) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.persist(new Employee("Harry", "Potter", 1000));
+        session.persist(new Employee(firstName, lastName, salary));
         session.getTransaction().commit();
         session.close();
     }

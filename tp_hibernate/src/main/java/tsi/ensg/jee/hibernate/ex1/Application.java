@@ -8,11 +8,13 @@ public class Application {
     public static void main(String[] args) {
 
         SessionFactory sessionFactory = HibernateUtils.createSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.save(new Employee("Harry", "Potter", 1000));
-        session.getTransaction().commit();
-        session.close();
+        EmployeeDAO employeeDAO = new EmployeeDAO(sessionFactory);
+
+        employeeDAO.create("Bob", "Moran", 500);
+        employeeDAO.create("Lisa", "Simpson", 100);
+        employeeDAO.create("Marge", "Simpson", 1000);
+        employeeDAO.create("Bob", "Dylan", 600);
+        employeeDAO.create("Homer", "Simpson", 450);
 
         System.out.println("Hello world !");
     }
