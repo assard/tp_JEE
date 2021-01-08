@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE xml>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">org.postgresql.Driver</property>
@@ -8,8 +10,13 @@
         <property name="connection.password">onyx</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
+        <!-- Create database schema -->
         <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <!-- Show SQL query -->
         <property name="hibernate.show_sql">true</property>
+
+        <!-- Map class Employee with relation Employee-->
         <mapping class="tsi.ensg.jee.hibernate.ex1.Employee"/>
     </session-factory>
 </hibernate-configuration>

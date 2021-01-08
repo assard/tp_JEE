@@ -1,11 +1,45 @@
 package tsi.ensg.jee.hibernate.ex1;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "employee")
 public class Employee {
 
+    @Id
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy="increment")
+    @Column(name = "idEmployee")
     private long id;
+
+    @Column(name = "firstName", nullable = false)
     private String firstName;
+
+    @Column(name = "lastName", nullable = false)
+    private String lastName;
+
+    @Column(name = "salary", nullable = false)
+    private int salary;
+
+    public Employee(){
+
+    }
+
+    public Employee(String firstName, String lastName, int salary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+    }
+
+    public Employee(long id, String firstName, String lastName, int salary) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+    }
 
     public long getId() {
         return id;
@@ -36,16 +70,6 @@ public class Employee {
     }
 
     public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    private String lastName;
-    private int salary;
-
-    public Employee(long id, String firstName, String lastName, int salary) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.salary = salary;
     }
 
