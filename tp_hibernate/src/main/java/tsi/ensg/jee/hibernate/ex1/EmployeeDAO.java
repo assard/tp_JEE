@@ -25,8 +25,10 @@ public class EmployeeDAO {
 
     public boolean delete(long id) {
         Session session = sessionFactory.openSession();
-        Optional<Employee> employee = this.get(id);
+        Employee employee = this.get(id).get();
+        session.beginTransaction();
         session.delete(employee);
+        session.getTransaction().commit();
         session.close();
         return this.get(id) == null;
 
@@ -36,16 +38,20 @@ public class EmployeeDAO {
         Session session = sessionFactory.openSession();
         Employee employee = this.get(id).get();
         employee.setSalary(salary);
+        session.beginTransaction();
         session.merge(employee);
+        session.getTransaction().commit();
         session.close();
         return this.get(id).get().getSalary() == salary;
     }
 
     public Optional<Employee> get(long id) {
         Session session = sessionFactory.openSession();
-        Employee result = session.get(Employee.class,id);
+        session.beginTransaction();
+        Employee result = (Employee)session.get(Employee.class,id);
+        session.getTransaction().commit();
         session.close();
-        return Optional.of(result);
+        return Optional.ofNullable(result);
     }
 
     public List<Employee> getAll() {
