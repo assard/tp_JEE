@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="tsi.ensg.jee.tp2.exo2.Configuration" />
+    </list>
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
