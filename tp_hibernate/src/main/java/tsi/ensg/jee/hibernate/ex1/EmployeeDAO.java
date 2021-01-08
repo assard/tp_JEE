@@ -15,7 +15,7 @@ public class EmployeeDAO {
         Objects.requireNonNull(this.sessionFactory = sessionFactory);
     }
 
-    public long create(String firstName, String lastName, int salary) {
+    public void create(String firstName, String lastName, int salary) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.persist(new Employee("Harry", "Potter", 1000));
@@ -24,11 +24,21 @@ public class EmployeeDAO {
     }
 
     public boolean delete(long id) {
-        // TODO
+        Session session = sessionFactory.openSession();
+        Optional<Employee> employee = this.get(id);
+        session.delete(employee);
+        session.close();
+        return this.get(id) == null;
+
     }
 
     public boolean update(long id, int salary) {
-        //TODO
+        Session session = sessionFactory.openSession();
+        Employee employee = this.get(id).get();
+        employee.setSalary(salary);
+        session.merge(employee);
+        session.close();
+        return this.get(id).get().getSalary() == salary;
     }
 
     public Optional<Employee> get(long id) {
