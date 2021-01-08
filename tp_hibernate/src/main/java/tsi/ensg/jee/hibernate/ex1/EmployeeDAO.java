@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import static jdk.nashorn.internal.objects.NativeMath.round;
+
 public class EmployeeDAO {
 
     private SessionFactory sessionFactory = HibernateUtils.createSessionFactory();
@@ -43,6 +45,19 @@ public class EmployeeDAO {
         session.getTransaction().commit();
         session.close();
         return this.get(id).get().getSalary() == salary;
+    }
+
+    public void updateSalaryByRate(long id, double rate){
+        Employee employee = this.get(id).get();
+        this.update(id, (int)Math.round(employee.getSalary()*(1+rate)));
+    }
+
+    public void updateLowSalary(long id, int increase, int threshold){
+        Employee employee = this.get(id).get();
+        int wage = employee.getSalary();
+        if (wage < threshold) {
+            this.update(id,wage+increase);
+        }
     }
 
     public Optional<Employee> get(long id) {

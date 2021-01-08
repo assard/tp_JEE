@@ -23,13 +23,21 @@ public class Application {
         employeeDAO.delete(2);
 
         //Increase Homer wages
-        Employee homer = employeeDAO.get(5).get();
-        employeeDAO.update(5,homer.getSalary()+100);
+        employeeDAO.update(5,employeeDAO.get(5).get().getSalary()+100);
 
         //Get and show employees
         List<Employee> workforce = employeeDAO.getAll();
         for (Employee employee : workforce) {
             System.out.println(employee.toString());
+        }
+
+        //Increase by 10% Homer's wage
+        employeeDAO.updateSalaryByRate(5,0.1);
+        System.out.println(employeeDAO.get(5).get().toString());
+
+        //Increase 100 the wage of employees which have less than 1000;
+        for (Employee employee : workforce) {
+            employeeDAO.updateLowSalary(employee.getId(), 100,1000);
         }
 
     }
