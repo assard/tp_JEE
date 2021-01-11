@@ -5,12 +5,5 @@
       <item index="0" class="java.lang.String" itemvalue="tsi.ensg.jee.tp2.exo2.Configuration" />
     </list>
   </component>
-  <component name="MavenProjectsManager">
-    <option name="originalFiles">
-      <list>
-        <option value="$PROJECT_DIR$/tp/pom.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
