@@ -14,7 +14,6 @@ public class Application {
         session.getTransaction().commit();
         session.close();
 
-        System.out.println("Hello world !");
     }
 
 }
