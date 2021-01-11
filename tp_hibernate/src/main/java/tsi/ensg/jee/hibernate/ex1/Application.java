@@ -45,6 +45,11 @@ public class Application {
             employeeDAO.updateLowSalary(employee.getId(), 100,550);
         }
 
+        List<Employee> bobEmployee = employeeDAO.getAllByFirstName("Bob");
+        for (Employee bob : bobEmployee) {
+            System.out.println(bob.toString());
+        }
+
     }
 
 }

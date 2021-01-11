@@ -76,4 +76,13 @@ public class EmployeeDAO {
         return result;
     }
 
+    public List<Employee> getAllByFirstName(String firstName) {
+        Session session = sessionFactory.openSession();
+        String queryString = String.format("from Employee where firstname='%s'",firstName);
+        System.out.println(queryString);
+        List<Employee> result = session.createQuery(queryString).list();
+        session.close();
+        return result;
+    }
+
 }
