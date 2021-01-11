@@ -35,9 +35,14 @@ public class Application {
         employeeDAO.updateSalaryByRate(5,0.1);
         System.out.println(employeeDAO.get(5).get().toString());
 
-        //Increase 100 the wage of employees which have less than 1000;
+        //Increase by 100 the wage of employees which have less than 1000;
         for (Employee employee : workforce) {
             employeeDAO.updateLowSalary(employee.getId(), 100,1000);
+        }
+
+        //Increase by 100 the wage of employees which have less than 550.
+        for (Employee employee : workforce) {
+            employeeDAO.updateLowSalary(employee.getId(), 100,550);
         }
 
     }
